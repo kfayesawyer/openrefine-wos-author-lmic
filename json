@@ -1,0 +1,1560 @@
+[
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "Addresses",
+    "keyColumnName": "Publication Type",
+    "mode": "separator",
+    "separator": "; [",
+    "regex": false,
+    "description": "Split multi-valued cells in column Addresses"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Addresses",
+    "expression": "grel:smartSplit(value, ' ')[-1]",
+    "onError": "set-to-blank",
+    "newColumnName": "Country Affiliation",
+    "columnInsertIndex": 23,
+    "description": "Create column Country Affiliation at index 23 based on column Addresses using expression grel:smartSplit(value, ' ')[-1]"
+  },
+  {
+    "op": "core/multivalued-cell-join",
+    "columnName": "Country Affiliation",
+    "keyColumnName": "Publication Type",
+    "separator": " | ",
+    "description": "Join multi-valued cells in column Country Affiliation"
+  },
+  {
+    "op": "core/multivalued-cell-join",
+    "columnName": "Addresses",
+    "keyColumnName": "Publication Type",
+    "separator": "; [",
+    "description": "Join multi-valued cells in column Addresses"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Country Affiliation",
+    "expression": "grel:smartSplit(value, ' ')[-1]",
+    "onError": "set-to-blank",
+    "newColumnName": "Last Author Country",
+    "columnInsertIndex": 24,
+    "description": "Create column Last Author Country at index 24 based on column Country Affiliation using expression grel:smartSplit(value, ' ')[-1]"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Country Affiliation",
+    "expression": "grel:smartSplit(value, ' ')[0]",
+    "onError": "set-to-blank",
+    "newColumnName": "First Author Country",
+    "columnInsertIndex": 24,
+    "description": "Create column First Author Country at index 24 based on column Country Affiliation using expression grel:smartSplit(value, ' ')[0]"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Country Affiliation",
+    "newColumnName": "All Country Affiliations",
+    "description": "Rename column Country Affiliation to All Country Affiliations"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "First Author Country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Africa"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "South Africa"
+      }
+    ],
+    "description": "Mass edit cells in column First Author Country"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "First Author Country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "CONGO"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Dem Rep Congo"
+      }
+    ],
+    "description": "Mass edit cells in column First Author Country"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "First Author Country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "England"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United Kingdom"
+      }
+    ],
+    "description": "Mass edit cells in column First Author Country"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "First Author Country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Herceg"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Bosnia and Herceg"
+      }
+    ],
+    "description": "Mass edit cells in column First Author Country"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "First Author Country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Islands"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Solomon Islands"
+      }
+    ],
+    "description": "Mass edit cells in column First Author Country"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "First Author Country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Lanka"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Sri Lanka"
+      }
+    ],
+    "description": "Mass edit cells in column First Author Country"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "First Author Country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Turkiye"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Turkey"
+      }
+    ],
+    "description": "Mass edit cells in column First Author Country"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "First Author Country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Wales"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United Kingdom"
+      }
+    ],
+    "description": "Mass edit cells in column First Author Country"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "First Author Country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Zealand"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "New Zealand"
+      }
+    ],
+    "description": "Mass edit cells in column First Author Country"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Last Author Country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Africa"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "South Africa"
+      }
+    ],
+    "description": "Mass edit cells in column Last Author Country"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Last Author Country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "CONGO"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Dem Rep Congo"
+      }
+    ],
+    "description": "Mass edit cells in column Last Author Country"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Last Author Country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Emirates"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United Arab Emirates"
+      }
+    ],
+    "description": "Mass edit cells in column Last Author Country"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Last Author Country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "England"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United Kingdom"
+      }
+    ],
+    "description": "Mass edit cells in column Last Author Country"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Last Author Country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Herceg"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Bosnia and Herceg"
+      }
+    ],
+    "description": "Mass edit cells in column Last Author Country"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Last Author Country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Guinea"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Papua New Guinea"
+      }
+    ],
+    "description": "Mass edit cells in column Last Author Country"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Last Author Country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Islands"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Solomon Islands"
+      }
+    ],
+    "description": "Mass edit cells in column Last Author Country"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Last Author Country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Lanka"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Sri Lanka"
+      }
+    ],
+    "description": "Mass edit cells in column Last Author Country"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Last Author Country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Turkiye"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Turkey"
+      }
+    ],
+    "description": "Mass edit cells in column Last Author Country"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Last Author Country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Wales"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United Kingdom"
+      }
+    ],
+    "description": "Mass edit cells in column Last Author Country"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Last Author Country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Zealand"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "New Zealand"
+      }
+    ],
+    "description": "Mass edit cells in column Last Author Country"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Publisher Address",
+    "expression": "grel:smartSplit(value, ' ')[-1]",
+    "onError": "set-to-blank",
+    "newColumnName": "Publisher Country",
+    "columnInsertIndex": 43,
+    "description": "Create column Publisher Country at index 43 based on column Publisher Address using expression grel:smartSplit(value, ' ')[-1]"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "First Author Country",
+    "expression": "grel:(value.contains(\"Afghanistan\")).or (value.contains(\"Burundi\")).or (value.contains(\"Burkina Faso\")).or (value.contains(\"Central African Republic\")).or (value.contains(\"DEM REP CONGO\")).or (value.contains(\"Eritrea\")).or (value.contains(\"Ethiopia\")).or (value.contains(\"Gambia\")).or (value.contains(\"Guinea-Bissau\")).or (value.contains(\"Liberia\")).or (value.contains(\"Madagascar\")).or (value.contains(\"Mali\")).or (value.contains(\"Mozambique\")).or (value.contains(\"Malawi\")).or (value.contains(\"Niger\")).or (value.contains(\"North Korea\")).or (value.contains(\"Rwanda\")).or (value.contains(\"Sudan\")).or (value.contains(\"Sierra Leone\")).or (value.contains(\"Somalia\")).or (value.contains(\"South Sudan\")).or (value.contains(\"Syrian Arab Republic\")).or (value.contains(\"Chad\")).or (value.contains(\"Togo\")).or (value.contains(\"Uganda\")).or (value.contains(\"Yemen\"))",
+    "onError": "set-to-blank",
+    "newColumnName": "First Author - LIC?",
+    "columnInsertIndex": 25,
+    "description": "Create column First Author - LIC? at index 25 based on column First Author Country using expression grel:(value.contains(\"Afghanistan\")).or (value.contains(\"Burundi\")).or (value.contains(\"Burkina Faso\")).or (value.contains(\"Central African Republic\")).or (value.contains(\"DEM REP CONGO\")).or (value.contains(\"Eritrea\")).or (value.contains(\"Ethiopia\")).or (value.contains(\"Gambia\")).or (value.contains(\"Guinea-Bissau\")).or (value.contains(\"Liberia\")).or (value.contains(\"Madagascar\")).or (value.contains(\"Mali\")).or (value.contains(\"Mozambique\")).or (value.contains(\"Malawi\")).or (value.contains(\"Niger\")).or (value.contains(\"North Korea\")).or (value.contains(\"Rwanda\")).or (value.contains(\"Sudan\")).or (value.contains(\"Sierra Leone\")).or (value.contains(\"Somalia\")).or (value.contains(\"South Sudan\")).or (value.contains(\"Syrian Arab Republic\")).or (value.contains(\"Chad\")).or (value.contains(\"Togo\")).or (value.contains(\"Uganda\")).or (value.contains(\"Yemen\"))"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "First Author Country",
+    "expression": "grel:(value.contains(\"Angola\")).or\n(value.contains(\"Benin\")).or\n(value.contains(\"Bangladesh\")).or\n(value.contains(\"Bolivia\")).or\n(value.contains(\"Bhutan\")).or\n(value.contains(\"Côte d’Ivoire\")).or\n(value.contains(\"Cameroon\")).or\n(value.contains(\"DEM REP CONGO\")).or\n(value.contains(\"Comoros\")).or\n(value.contains(\"Cabo Verde\")).or\n(value.contains(\"Djibouti\")).or\n(value.contains(\"Algeria\")).or\n(value.contains(\"Egypt\")).or\n(value.contains(\"Micronesia\")).or\n(value.contains(\"Ghana\")).or\n(value.contains(\"Guinea\")).or\n(value.contains(\"Honduras\")).or\n(value.contains(\"Haiti\")).or\n(value.contains(\"India\")).or\n(value.contains(\"Iran, Islamic Rep.\")).or\n(value.contains(\"Jordan\")).or\n(value.contains(\"Kenya\")).or\n(value.contains(\"Kyrgyz Republic\")).or\n(value.contains(\"Cambodia\")).or\n(value.contains(\"Kiribati\")).or\n(value.contains(\"Lao PDR\")).or\n(value.contains(\"Lebanon\")).or\n(value.contains(\"Sri Lanka\")).or\n(value.contains(\"Lesotho\")).or\n(value.contains(\"Morocco\")).or\n(value.contains(\"Myanmar\")).or\n(value.contains(\"Mongolia\")).or\n(value.contains(\"Mauritania\")).or\n(value.contains(\"Nigeria\")).or\n(value.contains(\"Nicaragua\")).or\n(value.contains(\"Nepal\")).or\n(value.contains(\"Pakistan\")).or\n(value.contains(\"Philippines\")).or\n(value.contains(\"Papua New Guinea\")).or\n(value.contains(\"Senegal\")).or\n(value.contains(\"Solomon Islands\")).or\n(value.contains(\"São Tomé and Príncipe\")).or\n(value.contains(\"Eswatini\")).or\n(value.contains(\"Tajikistan\")).or\n(value.contains(\"Timor-Leste\")).or\n(value.contains(\"Tunisia\")).or\n(value.contains(\"Tanzania\")).or\n(value.contains(\"Ukraine\")).or\n(value.contains(\"Uzbekistan\")).or\n(value.contains(\"Vietnam\")).or\n(value.contains(\"Vanuatu\")).or\n(value.contains(\"Samoa\")).or\n(value.contains(\"Zambia\")).or\n(value.contains(\"Zimbabwe\"))",
+    "onError": "set-to-blank",
+    "newColumnName": "First Author - LMIC?",
+    "columnInsertIndex": 25,
+    "description": "Create column First Author - LMIC? at index 25 based on column First Author Country using expression grel:(value.contains(\"Angola\")).or\n(value.contains(\"Benin\")).or\n(value.contains(\"Bangladesh\")).or\n(value.contains(\"Bolivia\")).or\n(value.contains(\"Bhutan\")).or\n(value.contains(\"Côte d’Ivoire\")).or\n(value.contains(\"Cameroon\")).or\n(value.contains(\"DEM REP CONGO\")).or\n(value.contains(\"Comoros\")).or\n(value.contains(\"Cabo Verde\")).or\n(value.contains(\"Djibouti\")).or\n(value.contains(\"Algeria\")).or\n(value.contains(\"Egypt\")).or\n(value.contains(\"Micronesia\")).or\n(value.contains(\"Ghana\")).or\n(value.contains(\"Guinea\")).or\n(value.contains(\"Honduras\")).or\n(value.contains(\"Haiti\")).or\n(value.contains(\"India\")).or\n(value.contains(\"Iran, Islamic Rep.\")).or\n(value.contains(\"Jordan\")).or\n(value.contains(\"Kenya\")).or\n(value.contains(\"Kyrgyz Republic\")).or\n(value.contains(\"Cambodia\")).or\n(value.contains(\"Kiribati\")).or\n(value.contains(\"Lao PDR\")).or\n(value.contains(\"Lebanon\")).or\n(value.contains(\"Sri Lanka\")).or\n(value.contains(\"Lesotho\")).or\n(value.contains(\"Morocco\")).or\n(value.contains(\"Myanmar\")).or\n(value.contains(\"Mongolia\")).or\n(value.contains(\"Mauritania\")).or\n(value.contains(\"Nigeria\")).or\n(value.contains(\"Nicaragua\")).or\n(value.contains(\"Nepal\")).or\n(value.contains(\"Pakistan\")).or\n(value.contains(\"Philippines\")).or\n(value.contains(\"Papua New Guinea\")).or\n(value.contains(\"Senegal\")).or\n(value.contains(\"Solomon Islands\")).or\n(value.contains(\"São Tomé and Príncipe\")).or\n(value.contains(\"Eswatini\")).or\n(value.contains(\"Tajikistan\")).or\n(value.contains(\"Timor-Leste\")).or\n(value.contains(\"Tunisia\")).or\n(value.contains(\"Tanzania\")).or\n(value.contains(\"Ukraine\")).or\n(value.contains(\"Uzbekistan\")).or\n(value.contains(\"Vietnam\")).or\n(value.contains(\"Vanuatu\")).or\n(value.contains(\"Samoa\")).or\n(value.contains(\"Zambia\")).or\n(value.contains(\"Zimbabwe\"))"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "First Author Country",
+    "expression": "grel:(value.contains(\"Albania\")).or\n(value.contains(\"Argentina\")).or\n(value.contains(\"Armenia\")).or\n(value.contains(\"Azerbaijan\")).or\n(value.contains(\"Bulgaria\")).or\n(value.contains(\"Bosnia and Herceg\")).or\n(value.contains(\"Belarus\")).or\n(value.contains(\"Belize\")).or\n(value.contains(\"Brazil\")).or\n(value.contains(\"Botswana\")).or\n(value.contains(\"China\")).or\n(value.contains(\"Colombia\")).or\n(value.contains(\"Costa Rica\")).or\n(value.contains(\"Cuba\")).or\n(value.contains(\"Dominica\")).or\n(value.contains(\"Dominican Republic\")).or\n(value.contains(\"Ecuador\")).or\n(value.contains(\"Fiji\")).or\n(value.contains(\"Gabon\")).or\n(value.contains(\"Georgia\")).or\n(value.contains(\"Equatorial Guinea\")).or\n(value.contains(\"Grenada\")).or\n(value.contains(\"Guatemala\")).or\n(value.contains(\"Indonesia\")).or\n(value.contains(\"Iraq\")).or\n(value.contains(\"Jamaica\")).or\n(value.contains(\"Kazakhstan\")).or\n(value.contains(\"Libya\")).or\n(value.contains(\"St. Lucia\")).or\n(value.contains(\"Moldova\")).or\n(value.contains(\"Maldives\")).or\n(value.contains(\"Mexico\")).or\n(value.contains(\"Marshall Islands\")).or\n(value.contains(\"North Macedonia\")).or\n(value.contains(\"Montenegro\")).or\n(value.contains(\"Mauritius\")).or\n(value.contains(\"Malaysia\")).or\n(value.contains(\"Namibia\")).or\n(value.contains(\"Peru\")).or\n(value.contains(\"Palau\")).or\n(value.contains(\"Paraguay\")).or\n(value.contains(\"West Bank and Gaza\")).or\n(value.contains(\"Russian Federation\")).or\n(value.contains(\"El Salvador\")).or\n(value.contains(\"Serbia\")).or\n(value.contains(\"Suriname\")).or\n(value.contains(\"Thailand\")).or\n(value.contains(\"Turkmenistan\")).or\n(value.contains(\"Tonga\")).or\n(value.contains(\"Türkiye\")).or\n(value.contains(\"Tuvalu\")).or\n(value.contains(\"St. Vincent and the Grenadines\")).or\n(value.contains(\"Kosovo\")).or\n(value.contains(\"South Africa\"))",
+    "onError": "set-to-blank",
+    "newColumnName": "First Author - UMIC?",
+    "columnInsertIndex": 25,
+    "description": "Create column First Author - UMIC? at index 25 based on column First Author Country using expression grel:(value.contains(\"Albania\")).or\n(value.contains(\"Argentina\")).or\n(value.contains(\"Armenia\")).or\n(value.contains(\"Azerbaijan\")).or\n(value.contains(\"Bulgaria\")).or\n(value.contains(\"Bosnia and Herceg\")).or\n(value.contains(\"Belarus\")).or\n(value.contains(\"Belize\")).or\n(value.contains(\"Brazil\")).or\n(value.contains(\"Botswana\")).or\n(value.contains(\"China\")).or\n(value.contains(\"Colombia\")).or\n(value.contains(\"Costa Rica\")).or\n(value.contains(\"Cuba\")).or\n(value.contains(\"Dominica\")).or\n(value.contains(\"Dominican Republic\")).or\n(value.contains(\"Ecuador\")).or\n(value.contains(\"Fiji\")).or\n(value.contains(\"Gabon\")).or\n(value.contains(\"Georgia\")).or\n(value.contains(\"Equatorial Guinea\")).or\n(value.contains(\"Grenada\")).or\n(value.contains(\"Guatemala\")).or\n(value.contains(\"Indonesia\")).or\n(value.contains(\"Iraq\")).or\n(value.contains(\"Jamaica\")).or\n(value.contains(\"Kazakhstan\")).or\n(value.contains(\"Libya\")).or\n(value.contains(\"St. Lucia\")).or\n(value.contains(\"Moldova\")).or\n(value.contains(\"Maldives\")).or\n(value.contains(\"Mexico\")).or\n(value.contains(\"Marshall Islands\")).or\n(value.contains(\"North Macedonia\")).or\n(value.contains(\"Montenegro\")).or\n(value.contains(\"Mauritius\")).or\n(value.contains(\"Malaysia\")).or\n(value.contains(\"Namibia\")).or\n(value.contains(\"Peru\")).or\n(value.contains(\"Palau\")).or\n(value.contains(\"Paraguay\")).or\n(value.contains(\"West Bank and Gaza\")).or\n(value.contains(\"Russian Federation\")).or\n(value.contains(\"El Salvador\")).or\n(value.contains(\"Serbia\")).or\n(value.contains(\"Suriname\")).or\n(value.contains(\"Thailand\")).or\n(value.contains(\"Turkmenistan\")).or\n(value.contains(\"Tonga\")).or\n(value.contains(\"Türkiye\")).or\n(value.contains(\"Tuvalu\")).or\n(value.contains(\"St. Vincent and the Grenadines\")).or\n(value.contains(\"Kosovo\")).or\n(value.contains(\"South Africa\"))"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "First Author Country",
+    "expression": "grel:(value.contains(\"Aruba\")).or\n(value.contains(\"Andorra\")).or\n(value.contains(\"United Arab Emirates\")).or\n(value.contains(\"American Samoa\")).or\n(value.contains(\"Antigua and Barbuda\")).or\n(value.contains(\"Australia\")).or\n(value.contains(\"Austria\")).or\n(value.contains(\"Belgium\")).or\n(value.contains(\"Bahrain\")).or\n(value.contains(\"Bahamas, The\")).or\n(value.contains(\"Bermuda\")).or\n(value.contains(\"Barbados\")).or\n(value.contains(\"Brunei Darussalam\")).or\n(value.contains(\"Canada\")).or\n(value.contains(\"Switzerland\")).or\n(value.contains(\"Channel Islands\")).or\n(value.contains(\"Chile\")).or\n(value.contains(\"Curaçao\")).or\n(value.contains(\"Cayman Islands\")).or\n(value.contains(\"Cyprus\")).or\n(value.contains(\"Czechia\")).or\n(value.contains(\"Germany\")).or\n(value.contains(\"Denmark\")).or\n(value.contains(\"Spain\")).or\n(value.contains(\"Estonia\")).or\n(value.contains(\"Finland\")).or\n(value.contains(\"France\")).or\n(value.contains(\"Faroe Islands\")).or\n(value.contains(\"United Kingdom\")).or\n(value.contains(\"Gibraltar\")).or\n(value.contains(\"Greece\")).or\n(value.contains(\"Greenland\")).or\n(value.contains(\"Guam\")).or\n(value.contains(\"Guyana\")).or\n(value.contains(\"Hong Kong\")).or\n(value.contains(\"Croatia\")).or\n(value.contains(\"Hungary\")).or\n(value.contains(\"Isle of Man\")).or\n(value.contains(\"Ireland\")).or\n(value.contains(\"Iceland\")).or\n(value.contains(\"Israel\")).or\n(value.contains(\"Italy\")).or\n(value.contains(\"Japan\")).or\n(value.contains(\"St. Kitts and Nevis\")).or\n(value.contains(\"Korea, Rep.\")).or\n(value.contains(\"Kuwait\")).or\n(value.contains(\"Liechtenstein\")).or\n(value.contains(\"Lithuania\")).or\n(value.contains(\"Luxembourg\")).or\n(value.contains(\"Latvia\")).or\n(value.contains(\"Macao SAR, China\")).or\n(value.contains(\"St. Martin\")).or\n(value.contains(\"Monaco\")).or\n(value.contains(\"Malta\")).or\n(value.contains(\"Northern Mariana Islands\")).or\n(value.contains(\"New Caledonia\")).or\n(value.contains(\"Netherlands\")).or\n(value.contains(\"Norway\")).or\n(value.contains(\"Nauru\")).or\n(value.contains(\"New Zealand\")).or\n(value.contains(\"Oman\")).or\n(value.contains(\"Panama\")).or\n(value.contains(\"Poland\")).or\n(value.contains(\"Puerto Rico\")).or\n(value.contains(\"Portugal\")).or\n(value.contains(\"French Polynesia\")).or\n(value.contains(\"Qatar\")).or\n(value.contains(\"Romania\")).or\n(value.contains(\"Saudi Arabia\")).or\n(value.contains(\"Singapore\")).or\n(value.contains(\"San Marino\")).or\n(value.contains(\"Slovak Republic\")).or\n(value.contains(\"Slovenia\")).or\n(value.contains(\"Sweden\")).or\n(value.contains(\"Sint Maarten\")).or\n(value.contains(\"Seychelles\")).or\n(value.contains(\"Turks and Caicos\")).or\n(value.contains(\"Trinidad and Tobago\")).or\n(value.contains(\"Taiwan\")).or\n(value.contains(\"Uruguay\")).or\n(value.contains(\"United States\")).or\n(value.contains(\"USA\")).or\n(value.contains(\"British Virgin Islands\")).or\n(value.contains(\"Virgin Islands\"))",
+    "onError": "set-to-blank",
+    "newColumnName": "First Author - HIC?",
+    "columnInsertIndex": 25,
+    "description": "Create column First Author - HIC? at index 25 based on column First Author Country using expression grel:(value.contains(\"Aruba\")).or\n(value.contains(\"Andorra\")).or\n(value.contains(\"United Arab Emirates\")).or\n(value.contains(\"American Samoa\")).or\n(value.contains(\"Antigua and Barbuda\")).or\n(value.contains(\"Australia\")).or\n(value.contains(\"Austria\")).or\n(value.contains(\"Belgium\")).or\n(value.contains(\"Bahrain\")).or\n(value.contains(\"Bahamas, The\")).or\n(value.contains(\"Bermuda\")).or\n(value.contains(\"Barbados\")).or\n(value.contains(\"Brunei Darussalam\")).or\n(value.contains(\"Canada\")).or\n(value.contains(\"Switzerland\")).or\n(value.contains(\"Channel Islands\")).or\n(value.contains(\"Chile\")).or\n(value.contains(\"Curaçao\")).or\n(value.contains(\"Cayman Islands\")).or\n(value.contains(\"Cyprus\")).or\n(value.contains(\"Czechia\")).or\n(value.contains(\"Germany\")).or\n(value.contains(\"Denmark\")).or\n(value.contains(\"Spain\")).or\n(value.contains(\"Estonia\")).or\n(value.contains(\"Finland\")).or\n(value.contains(\"France\")).or\n(value.contains(\"Faroe Islands\")).or\n(value.contains(\"United Kingdom\")).or\n(value.contains(\"Gibraltar\")).or\n(value.contains(\"Greece\")).or\n(value.contains(\"Greenland\")).or\n(value.contains(\"Guam\")).or\n(value.contains(\"Guyana\")).or\n(value.contains(\"Hong Kong\")).or\n(value.contains(\"Croatia\")).or\n(value.contains(\"Hungary\")).or\n(value.contains(\"Isle of Man\")).or\n(value.contains(\"Ireland\")).or\n(value.contains(\"Iceland\")).or\n(value.contains(\"Israel\")).or\n(value.contains(\"Italy\")).or\n(value.contains(\"Japan\")).or\n(value.contains(\"St. Kitts and Nevis\")).or\n(value.contains(\"Korea, Rep.\")).or\n(value.contains(\"Kuwait\")).or\n(value.contains(\"Liechtenstein\")).or\n(value.contains(\"Lithuania\")).or\n(value.contains(\"Luxembourg\")).or\n(value.contains(\"Latvia\")).or\n(value.contains(\"Macao SAR, China\")).or\n(value.contains(\"St. Martin\")).or\n(value.contains(\"Monaco\")).or\n(value.contains(\"Malta\")).or\n(value.contains(\"Northern Mariana Islands\")).or\n(value.contains(\"New Caledonia\")).or\n(value.contains(\"Netherlands\")).or\n(value.contains(\"Norway\")).or\n(value.contains(\"Nauru\")).or\n(value.contains(\"New Zealand\")).or\n(value.contains(\"Oman\")).or\n(value.contains(\"Panama\")).or\n(value.contains(\"Poland\")).or\n(value.contains(\"Puerto Rico\")).or\n(value.contains(\"Portugal\")).or\n(value.contains(\"French Polynesia\")).or\n(value.contains(\"Qatar\")).or\n(value.contains(\"Romania\")).or\n(value.contains(\"Saudi Arabia\")).or\n(value.contains(\"Singapore\")).or\n(value.contains(\"San Marino\")).or\n(value.contains(\"Slovak Republic\")).or\n(value.contains(\"Slovenia\")).or\n(value.contains(\"Sweden\")).or\n(value.contains(\"Sint Maarten\")).or\n(value.contains(\"Seychelles\")).or\n(value.contains(\"Turks and Caicos\")).or\n(value.contains(\"Trinidad and Tobago\")).or\n(value.contains(\"Taiwan\")).or\n(value.contains(\"Uruguay\")).or\n(value.contains(\"United States\")).or\n(value.contains(\"USA\")).or\n(value.contains(\"British Virgin Islands\")).or\n(value.contains(\"Virgin Islands\"))"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Last Author Country",
+    "expression": "grel:(value.contains(\"Afghanistan\")).or\n(value.contains(\"Burundi\")).or\n(value.contains(\"Burkina Faso\")).or\n(value.contains(\"Central African Republic\")).or\n(value.contains(\"DEM REP CONGO\")).or\n(value.contains(\"Eritrea\")).or\n(value.contains(\"Ethiopia\")).or\n(value.contains(\"Gambia\")).or\n(value.contains(\"Guinea-Bissau\")).or\n(value.contains(\"Liberia\")).or\n(value.contains(\"Madagascar\")).or\n(value.contains(\"Mali\")).or\n(value.contains(\"Mozambique\")).or\n(value.contains(\"Malawi\")).or\n(value.contains(\"Niger\")).or\n(value.contains(\"North Korea\")).or\n(value.contains(\"Rwanda\")).or\n(value.contains(\"Sudan\")).or\n(value.contains(\"Sierra Leone\")).or\n(value.contains(\"Somalia\")).or\n(value.contains(\"South Sudan\")).or\n(value.contains(\"Syrian Arab Republic\")).or\n(value.contains(\"Chad\")).or\n(value.contains(\"Togo\")).or\n(value.contains(\"Uganda\")).or\n(value.contains(\"Yemen\"))",
+    "onError": "set-to-blank",
+    "newColumnName": "Last Author - LIC?",
+    "columnInsertIndex": 30,
+    "description": "Create column Last Author - LIC? at index 30 based on column Last Author Country using expression grel:(value.contains(\"Afghanistan\")).or\n(value.contains(\"Burundi\")).or\n(value.contains(\"Burkina Faso\")).or\n(value.contains(\"Central African Republic\")).or\n(value.contains(\"DEM REP CONGO\")).or\n(value.contains(\"Eritrea\")).or\n(value.contains(\"Ethiopia\")).or\n(value.contains(\"Gambia\")).or\n(value.contains(\"Guinea-Bissau\")).or\n(value.contains(\"Liberia\")).or\n(value.contains(\"Madagascar\")).or\n(value.contains(\"Mali\")).or\n(value.contains(\"Mozambique\")).or\n(value.contains(\"Malawi\")).or\n(value.contains(\"Niger\")).or\n(value.contains(\"North Korea\")).or\n(value.contains(\"Rwanda\")).or\n(value.contains(\"Sudan\")).or\n(value.contains(\"Sierra Leone\")).or\n(value.contains(\"Somalia\")).or\n(value.contains(\"South Sudan\")).or\n(value.contains(\"Syrian Arab Republic\")).or\n(value.contains(\"Chad\")).or\n(value.contains(\"Togo\")).or\n(value.contains(\"Uganda\")).or\n(value.contains(\"Yemen\"))"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Last Author Country",
+    "expression": "grel:(value.contains(\"Angola\")).or\n(value.contains(\"Benin\")).or\n(value.contains(\"Bangladesh\")).or\n(value.contains(\"Bolivia\")).or\n(value.contains(\"Bhutan\")).or\n(value.contains(\"Côte d’Ivoire\")).or\n(value.contains(\"Cameroon\")).or\n(value.contains(\"DEM REP CONGO\")).or\n(value.contains(\"Comoros\")).or\n(value.contains(\"Cabo Verde\")).or\n(value.contains(\"Djibouti\")).or\n(value.contains(\"Algeria\")).or\n(value.contains(\"Egypt\")).or\n(value.contains(\"Micronesia\")).or\n(value.contains(\"Ghana\")).or\n(value.contains(\"Guinea\")).or\n(value.contains(\"Honduras\")).or\n(value.contains(\"Haiti\")).or\n(value.contains(\"India\")).or\n(value.contains(\"Iran, Islamic Rep.\")).or\n(value.contains(\"Jordan\")).or\n(value.contains(\"Kenya\")).or\n(value.contains(\"Kyrgyz Republic\")).or\n(value.contains(\"Cambodia\")).or\n(value.contains(\"Kiribati\")).or\n(value.contains(\"Lao PDR\")).or\n(value.contains(\"Lebanon\")).or\n(value.contains(\"Sri Lanka\")).or\n(value.contains(\"Lesotho\")).or\n(value.contains(\"Morocco\")).or\n(value.contains(\"Myanmar\")).or\n(value.contains(\"Mongolia\")).or\n(value.contains(\"Mauritania\")).or\n(value.contains(\"Nigeria\")).or\n(value.contains(\"Nicaragua\")).or\n(value.contains(\"Nepal\")).or\n(value.contains(\"Pakistan\")).or\n(value.contains(\"Philippines\")).or\n(value.contains(\"Papua New Guinea\")).or\n(value.contains(\"Senegal\")).or\n(value.contains(\"Solomon Islands\")).or\n(value.contains(\"São Tomé and Príncipe\")).or\n(value.contains(\"Eswatini\")).or\n(value.contains(\"Tajikistan\")).or\n(value.contains(\"Timor-Leste\")).or\n(value.contains(\"Tunisia\")).or\n(value.contains(\"Tanzania\")).or\n(value.contains(\"Ukraine\")).or\n(value.contains(\"Uzbekistan\")).or\n(value.contains(\"Vietnam\")).or\n(value.contains(\"Vanuatu\")).or\n(value.contains(\"Samoa\")).or\n(value.contains(\"Zambia\")).or\n(value.contains(\"Zimbabwe\"))",
+    "onError": "set-to-blank",
+    "newColumnName": "Last Author - LMIC?",
+    "columnInsertIndex": 30,
+    "description": "Create column Last Author - LMIC? at index 30 based on column Last Author Country using expression grel:(value.contains(\"Angola\")).or\n(value.contains(\"Benin\")).or\n(value.contains(\"Bangladesh\")).or\n(value.contains(\"Bolivia\")).or\n(value.contains(\"Bhutan\")).or\n(value.contains(\"Côte d’Ivoire\")).or\n(value.contains(\"Cameroon\")).or\n(value.contains(\"DEM REP CONGO\")).or\n(value.contains(\"Comoros\")).or\n(value.contains(\"Cabo Verde\")).or\n(value.contains(\"Djibouti\")).or\n(value.contains(\"Algeria\")).or\n(value.contains(\"Egypt\")).or\n(value.contains(\"Micronesia\")).or\n(value.contains(\"Ghana\")).or\n(value.contains(\"Guinea\")).or\n(value.contains(\"Honduras\")).or\n(value.contains(\"Haiti\")).or\n(value.contains(\"India\")).or\n(value.contains(\"Iran, Islamic Rep.\")).or\n(value.contains(\"Jordan\")).or\n(value.contains(\"Kenya\")).or\n(value.contains(\"Kyrgyz Republic\")).or\n(value.contains(\"Cambodia\")).or\n(value.contains(\"Kiribati\")).or\n(value.contains(\"Lao PDR\")).or\n(value.contains(\"Lebanon\")).or\n(value.contains(\"Sri Lanka\")).or\n(value.contains(\"Lesotho\")).or\n(value.contains(\"Morocco\")).or\n(value.contains(\"Myanmar\")).or\n(value.contains(\"Mongolia\")).or\n(value.contains(\"Mauritania\")).or\n(value.contains(\"Nigeria\")).or\n(value.contains(\"Nicaragua\")).or\n(value.contains(\"Nepal\")).or\n(value.contains(\"Pakistan\")).or\n(value.contains(\"Philippines\")).or\n(value.contains(\"Papua New Guinea\")).or\n(value.contains(\"Senegal\")).or\n(value.contains(\"Solomon Islands\")).or\n(value.contains(\"São Tomé and Príncipe\")).or\n(value.contains(\"Eswatini\")).or\n(value.contains(\"Tajikistan\")).or\n(value.contains(\"Timor-Leste\")).or\n(value.contains(\"Tunisia\")).or\n(value.contains(\"Tanzania\")).or\n(value.contains(\"Ukraine\")).or\n(value.contains(\"Uzbekistan\")).or\n(value.contains(\"Vietnam\")).or\n(value.contains(\"Vanuatu\")).or\n(value.contains(\"Samoa\")).or\n(value.contains(\"Zambia\")).or\n(value.contains(\"Zimbabwe\"))"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Last Author Country",
+    "expression": "grel:(value.contains(\"Albania\")).or\n(value.contains(\"Argentina\")).or\n(value.contains(\"Armenia\")).or\n(value.contains(\"Azerbaijan\")).or\n(value.contains(\"Bulgaria\")).or\n(value.contains(\"Bosnia and Herceg\")).or\n(value.contains(\"Belarus\")).or\n(value.contains(\"Belize\")).or\n(value.contains(\"Brazil\")).or\n(value.contains(\"Botswana\")).or\n(value.contains(\"China\")).or\n(value.contains(\"Colombia\")).or\n(value.contains(\"Costa Rica\")).or\n(value.contains(\"Cuba\")).or\n(value.contains(\"Dominica\")).or\n(value.contains(\"Dominican Republic\")).or\n(value.contains(\"Ecuador\")).or\n(value.contains(\"Fiji\")).or\n(value.contains(\"Gabon\")).or\n(value.contains(\"Georgia\")).or\n(value.contains(\"Equatorial Guinea\")).or\n(value.contains(\"Grenada\")).or\n(value.contains(\"Guatemala\")).or\n(value.contains(\"Indonesia\")).or\n(value.contains(\"Iraq\")).or\n(value.contains(\"Jamaica\")).or\n(value.contains(\"Kazakhstan\")).or\n(value.contains(\"Libya\")).or\n(value.contains(\"St. Lucia\")).or\n(value.contains(\"Moldova\")).or\n(value.contains(\"Maldives\")).or\n(value.contains(\"Mexico\")).or\n(value.contains(\"Marshall Islands\")).or\n(value.contains(\"North Macedonia\")).or\n(value.contains(\"Montenegro\")).or\n(value.contains(\"Mauritius\")).or\n(value.contains(\"Malaysia\")).or\n(value.contains(\"Namibia\")).or\n(value.contains(\"Peru\")).or\n(value.contains(\"Palau\")).or\n(value.contains(\"Paraguay\")).or\n(value.contains(\"West Bank and Gaza\")).or\n(value.contains(\"Russian Federation\")).or\n(value.contains(\"El Salvador\")).or\n(value.contains(\"Serbia\")).or\n(value.contains(\"Suriname\")).or\n(value.contains(\"Thailand\")).or\n(value.contains(\"Turkmenistan\")).or\n(value.contains(\"Tonga\")).or\n(value.contains(\"Türkiye\")).or\n(value.contains(\"Tuvalu\")).or\n(value.contains(\"St. Vincent and the Grenadines\")).or\n(value.contains(\"Kosovo\")).or\n(value.contains(\"South Africa\"))",
+    "onError": "set-to-blank",
+    "newColumnName": "Last Author - UMIC?",
+    "columnInsertIndex": 30,
+    "description": "Create column Last Author - UMIC? at index 30 based on column Last Author Country using expression grel:(value.contains(\"Albania\")).or\n(value.contains(\"Argentina\")).or\n(value.contains(\"Armenia\")).or\n(value.contains(\"Azerbaijan\")).or\n(value.contains(\"Bulgaria\")).or\n(value.contains(\"Bosnia and Herceg\")).or\n(value.contains(\"Belarus\")).or\n(value.contains(\"Belize\")).or\n(value.contains(\"Brazil\")).or\n(value.contains(\"Botswana\")).or\n(value.contains(\"China\")).or\n(value.contains(\"Colombia\")).or\n(value.contains(\"Costa Rica\")).or\n(value.contains(\"Cuba\")).or\n(value.contains(\"Dominica\")).or\n(value.contains(\"Dominican Republic\")).or\n(value.contains(\"Ecuador\")).or\n(value.contains(\"Fiji\")).or\n(value.contains(\"Gabon\")).or\n(value.contains(\"Georgia\")).or\n(value.contains(\"Equatorial Guinea\")).or\n(value.contains(\"Grenada\")).or\n(value.contains(\"Guatemala\")).or\n(value.contains(\"Indonesia\")).or\n(value.contains(\"Iraq\")).or\n(value.contains(\"Jamaica\")).or\n(value.contains(\"Kazakhstan\")).or\n(value.contains(\"Libya\")).or\n(value.contains(\"St. Lucia\")).or\n(value.contains(\"Moldova\")).or\n(value.contains(\"Maldives\")).or\n(value.contains(\"Mexico\")).or\n(value.contains(\"Marshall Islands\")).or\n(value.contains(\"North Macedonia\")).or\n(value.contains(\"Montenegro\")).or\n(value.contains(\"Mauritius\")).or\n(value.contains(\"Malaysia\")).or\n(value.contains(\"Namibia\")).or\n(value.contains(\"Peru\")).or\n(value.contains(\"Palau\")).or\n(value.contains(\"Paraguay\")).or\n(value.contains(\"West Bank and Gaza\")).or\n(value.contains(\"Russian Federation\")).or\n(value.contains(\"El Salvador\")).or\n(value.contains(\"Serbia\")).or\n(value.contains(\"Suriname\")).or\n(value.contains(\"Thailand\")).or\n(value.contains(\"Turkmenistan\")).or\n(value.contains(\"Tonga\")).or\n(value.contains(\"Türkiye\")).or\n(value.contains(\"Tuvalu\")).or\n(value.contains(\"St. Vincent and the Grenadines\")).or\n(value.contains(\"Kosovo\")).or\n(value.contains(\"South Africa\"))"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Last Author Country",
+    "expression": "grel:(value.contains(\"Aruba\")).or\n(value.contains(\"Andorra\")).or\n(value.contains(\"United Arab Emirates\")).or\n(value.contains(\"American Samoa\")).or\n(value.contains(\"Antigua and Barbuda\")).or\n(value.contains(\"Australia\")).or\n(value.contains(\"Austria\")).or\n(value.contains(\"Belgium\")).or\n(value.contains(\"Bahrain\")).or\n(value.contains(\"Bahamas, The\")).or\n(value.contains(\"Bermuda\")).or\n(value.contains(\"Barbados\")).or\n(value.contains(\"Brunei Darussalam\")).or\n(value.contains(\"Canada\")).or\n(value.contains(\"Switzerland\")).or\n(value.contains(\"Channel Islands\")).or\n(value.contains(\"Chile\")).or\n(value.contains(\"Curaçao\")).or\n(value.contains(\"Cayman Islands\")).or\n(value.contains(\"Cyprus\")).or\n(value.contains(\"Czechia\")).or\n(value.contains(\"Germany\")).or\n(value.contains(\"Denmark\")).or\n(value.contains(\"Spain\")).or\n(value.contains(\"Estonia\")).or\n(value.contains(\"Finland\")).or\n(value.contains(\"France\")).or\n(value.contains(\"Faroe Islands\")).or\n(value.contains(\"United Kingdom\")).or\n(value.contains(\"Gibraltar\")).or\n(value.contains(\"Greece\")).or\n(value.contains(\"Greenland\")).or\n(value.contains(\"Guam\")).or\n(value.contains(\"Guyana\")).or\n(value.contains(\"Hong Kong\")).or\n(value.contains(\"Croatia\")).or\n(value.contains(\"Hungary\")).or\n(value.contains(\"Isle of Man\")).or\n(value.contains(\"Ireland\")).or\n(value.contains(\"Iceland\")).or\n(value.contains(\"Israel\")).or\n(value.contains(\"Italy\")).or\n(value.contains(\"Japan\")).or\n(value.contains(\"St. Kitts and Nevis\")).or\n(value.contains(\"Korea, Rep.\")).or\n(value.contains(\"Kuwait\")).or\n(value.contains(\"Liechtenstein\")).or\n(value.contains(\"Lithuania\")).or\n(value.contains(\"Luxembourg\")).or\n(value.contains(\"Latvia\")).or\n(value.contains(\"Macao SAR, China\")).or\n(value.contains(\"St. Martin\")).or\n(value.contains(\"Monaco\")).or\n(value.contains(\"Malta\")).or\n(value.contains(\"Northern Mariana Islands\")).or\n(value.contains(\"New Caledonia\")).or\n(value.contains(\"Netherlands\")).or\n(value.contains(\"Norway\")).or\n(value.contains(\"Nauru\")).or\n(value.contains(\"New Zealand\")).or\n(value.contains(\"Oman\")).or\n(value.contains(\"Panama\")).or\n(value.contains(\"Poland\")).or\n(value.contains(\"Puerto Rico\")).or\n(value.contains(\"Portugal\")).or\n(value.contains(\"French Polynesia\")).or\n(value.contains(\"Qatar\")).or\n(value.contains(\"Romania\")).or\n(value.contains(\"Saudi Arabia\")).or\n(value.contains(\"Singapore\")).or\n(value.contains(\"San Marino\")).or\n(value.contains(\"Slovak Republic\")).or\n(value.contains(\"Slovenia\")).or\n(value.contains(\"Sweden\")).or\n(value.contains(\"Sint Maarten\")).or\n(value.contains(\"Seychelles\")).or\n(value.contains(\"Turks and Caicos\")).or\n(value.contains(\"Trinidad and Tobago\")).or\n(value.contains(\"Taiwan\")).or\n(value.contains(\"Uruguay\")).or\n(value.contains(\"United States\")).or\n(value.contains(\"USA\")).or\n(value.contains(\"British Virgin Islands\")).or\n(value.contains(\"Virgin Islands\"))",
+    "onError": "set-to-blank",
+    "newColumnName": "Last Author - HIC?",
+    "columnInsertIndex": 30,
+    "description": "Create column Last Author - HIC? at index 30 based on column Last Author Country using expression grel:(value.contains(\"Aruba\")).or\n(value.contains(\"Andorra\")).or\n(value.contains(\"United Arab Emirates\")).or\n(value.contains(\"American Samoa\")).or\n(value.contains(\"Antigua and Barbuda\")).or\n(value.contains(\"Australia\")).or\n(value.contains(\"Austria\")).or\n(value.contains(\"Belgium\")).or\n(value.contains(\"Bahrain\")).or\n(value.contains(\"Bahamas, The\")).or\n(value.contains(\"Bermuda\")).or\n(value.contains(\"Barbados\")).or\n(value.contains(\"Brunei Darussalam\")).or\n(value.contains(\"Canada\")).or\n(value.contains(\"Switzerland\")).or\n(value.contains(\"Channel Islands\")).or\n(value.contains(\"Chile\")).or\n(value.contains(\"Curaçao\")).or\n(value.contains(\"Cayman Islands\")).or\n(value.contains(\"Cyprus\")).or\n(value.contains(\"Czechia\")).or\n(value.contains(\"Germany\")).or\n(value.contains(\"Denmark\")).or\n(value.contains(\"Spain\")).or\n(value.contains(\"Estonia\")).or\n(value.contains(\"Finland\")).or\n(value.contains(\"France\")).or\n(value.contains(\"Faroe Islands\")).or\n(value.contains(\"United Kingdom\")).or\n(value.contains(\"Gibraltar\")).or\n(value.contains(\"Greece\")).or\n(value.contains(\"Greenland\")).or\n(value.contains(\"Guam\")).or\n(value.contains(\"Guyana\")).or\n(value.contains(\"Hong Kong\")).or\n(value.contains(\"Croatia\")).or\n(value.contains(\"Hungary\")).or\n(value.contains(\"Isle of Man\")).or\n(value.contains(\"Ireland\")).or\n(value.contains(\"Iceland\")).or\n(value.contains(\"Israel\")).or\n(value.contains(\"Italy\")).or\n(value.contains(\"Japan\")).or\n(value.contains(\"St. Kitts and Nevis\")).or\n(value.contains(\"Korea, Rep.\")).or\n(value.contains(\"Kuwait\")).or\n(value.contains(\"Liechtenstein\")).or\n(value.contains(\"Lithuania\")).or\n(value.contains(\"Luxembourg\")).or\n(value.contains(\"Latvia\")).or\n(value.contains(\"Macao SAR, China\")).or\n(value.contains(\"St. Martin\")).or\n(value.contains(\"Monaco\")).or\n(value.contains(\"Malta\")).or\n(value.contains(\"Northern Mariana Islands\")).or\n(value.contains(\"New Caledonia\")).or\n(value.contains(\"Netherlands\")).or\n(value.contains(\"Norway\")).or\n(value.contains(\"Nauru\")).or\n(value.contains(\"New Zealand\")).or\n(value.contains(\"Oman\")).or\n(value.contains(\"Panama\")).or\n(value.contains(\"Poland\")).or\n(value.contains(\"Puerto Rico\")).or\n(value.contains(\"Portugal\")).or\n(value.contains(\"French Polynesia\")).or\n(value.contains(\"Qatar\")).or\n(value.contains(\"Romania\")).or\n(value.contains(\"Saudi Arabia\")).or\n(value.contains(\"Singapore\")).or\n(value.contains(\"San Marino\")).or\n(value.contains(\"Slovak Republic\")).or\n(value.contains(\"Slovenia\")).or\n(value.contains(\"Sweden\")).or\n(value.contains(\"Sint Maarten\")).or\n(value.contains(\"Seychelles\")).or\n(value.contains(\"Turks and Caicos\")).or\n(value.contains(\"Trinidad and Tobago\")).or\n(value.contains(\"Taiwan\")).or\n(value.contains(\"Uruguay\")).or\n(value.contains(\"United States\")).or\n(value.contains(\"USA\")).or\n(value.contains(\"British Virgin Islands\")).or\n(value.contains(\"Virgin Islands\"))"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "First Author - HIC?",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "false"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": ""
+      }
+    ],
+    "description": "Mass edit cells in column First Author - HIC?"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "First Author - HIC?",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "true"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "HIC"
+      }
+    ],
+    "description": "Mass edit cells in column First Author - HIC?"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "First Author - UMIC?",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "true"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "UMIC"
+      }
+    ],
+    "description": "Mass edit cells in column First Author - UMIC?"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "First Author - UMIC?",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "false"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": ""
+      }
+    ],
+    "description": "Mass edit cells in column First Author - UMIC?"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "First Author - LMIC?",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "false"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": ""
+      }
+    ],
+    "description": "Mass edit cells in column First Author - LMIC?"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "First Author - LMIC?",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "true"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "LMIC"
+      }
+    ],
+    "description": "Mass edit cells in column First Author - LMIC?"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "First Author - LIC?",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "false"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": ""
+      }
+    ],
+    "description": "Mass edit cells in column First Author - LIC?"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "First Author - LIC?",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "true"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "LIC"
+      }
+    ],
+    "description": "Mass edit cells in column First Author - LIC?"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Last Author - HIC?",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "false"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": ""
+      }
+    ],
+    "description": "Mass edit cells in column Last Author - HIC?"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Last Author - HIC?",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "true"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "HIC"
+      }
+    ],
+    "description": "Mass edit cells in column Last Author - HIC?"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Last Author - UMIC?",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "false"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": ""
+      }
+    ],
+    "description": "Mass edit cells in column Last Author - UMIC?"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Last Author - UMIC?",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "true"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "UMIC"
+      }
+    ],
+    "description": "Mass edit cells in column Last Author - UMIC?"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Last Author - LMIC?",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "false"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": ""
+      }
+    ],
+    "description": "Mass edit cells in column Last Author - LMIC?"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Last Author - LMIC?",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "true"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "LMIC"
+      }
+    ],
+    "description": "Mass edit cells in column Last Author - LMIC?"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Last Author - LIC?",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "false"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": ""
+      }
+    ],
+    "description": "Mass edit cells in column Last Author - LIC?"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Last Author - LIC?",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [],
+        "fromBlank": true,
+        "fromError": false,
+        "to": "LIC"
+      }
+    ],
+    "description": "Mass edit cells in column Last Author - LIC?"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "First Author - HIC?",
+    "expression": "join ([coalesce(cells['First Author - HIC?'].value,''),coalesce(cells['First Author - UMIC?'].value,''),coalesce(cells['First Author - LMIC?'].value,''),coalesce(cells['First Author - LIC?'].value,'')],'')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column First Author - HIC? using expression join ([coalesce(cells['First Author - HIC?'].value,''),coalesce(cells['First Author - UMIC?'].value,''),coalesce(cells['First Author - LMIC?'].value,''),coalesce(cells['First Author - LIC?'].value,'')],'')"
+  },
+  {
+    "op": "core/column-reorder",
+    "columnNames": [
+      "Publication Type",
+      "Authors",
+      "Book Authors",
+      "Book Editors",
+      "Book Group Authors",
+      "Author Full Names",
+      "Book Author Full Names",
+      "Group Authors",
+      "Article Title",
+      "Source Title",
+      "Book Series Title",
+      "Book Series Subtitle",
+      "Language",
+      "Document Type",
+      "Conference Title",
+      "Conference Date",
+      "Conference Location",
+      "Conference Sponsor",
+      "Conference Host",
+      "Author Keywords",
+      "Keywords Plus",
+      "Abstract",
+      "Addresses",
+      "All Country Affiliations",
+      "First Author Country",
+      "First Author - HIC?",
+      "Last Author Country",
+      "Last Author - HIC?",
+      "Last Author - UMIC?",
+      "Last Author - LMIC?",
+      "Last Author - LIC?",
+      "Affiliations",
+      "Reprint Addresses",
+      "Email Addresses",
+      "Researcher Ids",
+      "ORCIDs",
+      "Funding Orgs",
+      "Funding Name Preferred",
+      "Funding Text",
+      "Cited References",
+      "Cited Reference Count",
+      "Times Cited, WoS Core",
+      "Times Cited, All Databases",
+      "180 Day Usage Count",
+      "Since 2013 Usage Count",
+      "Publisher",
+      "Publisher City",
+      "Publisher Address",
+      "Publisher Country",
+      "ISSN",
+      "eISSN",
+      "ISBN",
+      "Journal Abbreviation",
+      "Journal ISO Abbreviation",
+      "Publication Date",
+      "Publication Year",
+      "Volume",
+      "Issue",
+      "Part Number",
+      "Supplement",
+      "Special Issue",
+      "Meeting Abstract",
+      "Start Page",
+      "End Page",
+      "Article Number",
+      "DOI",
+      "DOI Link",
+      "Book DOI",
+      "Early Access Date",
+      "Number of Pages",
+      "WoS Categories",
+      "Web of Science Index",
+      "Research Areas",
+      "IDS Number",
+      "Pubmed Id",
+      "Open Access Designations",
+      "Highly Cited Status",
+      "Hot Paper Status",
+      "Date of Export",
+      "UT (Unique WOS ID)",
+      "Web of Science Record"
+    ],
+    "description": "Reorder columns"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "First Author - HIC?",
+    "newColumnName": "First Author Income Level",
+    "description": "Rename column First Author - HIC? to First Author Income Level"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Last Author - LIC?",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "LIC"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": ""
+      }
+    ],
+    "description": "Mass edit cells in column Last Author - LIC?"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Last Author - LIC?",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "true"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "LIC"
+      }
+    ],
+    "description": "Mass edit cells in column Last Author - LIC?"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Last Author - HIC?",
+    "expression": "join ([coalesce(cells['Last Author - HIC?'].value,''),coalesce(cells['Last Author - UMIC?'].value,''),coalesce(cells['Last Author - LMIC?'].value,''),coalesce(cells['Last Author - LIC?'].value,'')],'')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Last Author - HIC? using expression join ([coalesce(cells['Last Author - HIC?'].value,''),coalesce(cells['Last Author - UMIC?'].value,''),coalesce(cells['Last Author - LMIC?'].value,''),coalesce(cells['Last Author - LIC?'].value,'')],'')"
+  },
+  {
+    "op": "core/column-reorder",
+    "columnNames": [
+      "Publication Type",
+      "Authors",
+      "Book Authors",
+      "Book Editors",
+      "Book Group Authors",
+      "Author Full Names",
+      "Book Author Full Names",
+      "Group Authors",
+      "Article Title",
+      "Source Title",
+      "Book Series Title",
+      "Book Series Subtitle",
+      "Language",
+      "Document Type",
+      "Conference Title",
+      "Conference Date",
+      "Conference Location",
+      "Conference Sponsor",
+      "Conference Host",
+      "Author Keywords",
+      "Keywords Plus",
+      "Abstract",
+      "Addresses",
+      "All Country Affiliations",
+      "First Author Country",
+      "First Author Income Level",
+      "Last Author Country",
+      "Last Author - HIC?",
+      "Affiliations",
+      "Reprint Addresses",
+      "Email Addresses",
+      "Researcher Ids",
+      "ORCIDs",
+      "Funding Orgs",
+      "Funding Name Preferred",
+      "Funding Text",
+      "Cited References",
+      "Cited Reference Count",
+      "Times Cited, WoS Core",
+      "Times Cited, All Databases",
+      "180 Day Usage Count",
+      "Since 2013 Usage Count",
+      "Publisher",
+      "Publisher City",
+      "Publisher Address",
+      "Publisher Country",
+      "ISSN",
+      "eISSN",
+      "ISBN",
+      "Journal Abbreviation",
+      "Journal ISO Abbreviation",
+      "Publication Date",
+      "Publication Year",
+      "Volume",
+      "Issue",
+      "Part Number",
+      "Supplement",
+      "Special Issue",
+      "Meeting Abstract",
+      "Start Page",
+      "End Page",
+      "Article Number",
+      "DOI",
+      "DOI Link",
+      "Book DOI",
+      "Early Access Date",
+      "Number of Pages",
+      "WoS Categories",
+      "Web of Science Index",
+      "Research Areas",
+      "IDS Number",
+      "Pubmed Id",
+      "Open Access Designations",
+      "Highly Cited Status",
+      "Hot Paper Status",
+      "Date of Export",
+      "UT (Unique WOS ID)",
+      "Web of Science Record"
+    ],
+    "description": "Reorder columns"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Last Author - HIC?",
+    "newColumnName": "Last Author Income Level",
+    "description": "Rename column Last Author - HIC? to Last Author Income Level"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "All Country Affiliations",
+    "expression": "grel:(value.contains(\"Afghanistan\")).or\n(value.contains(\"Burundi\")).or\n(value.contains(\"Burkina Faso\")).or\n(value.contains(\"Central African Republic\")).or\n(value.contains(\"DEM REP CONGO\")).or\n(value.contains(\"Eritrea\")).or\n(value.contains(\"Ethiopia\")).or\n(value.contains(\"Gambia\")).or\n(value.contains(\"Guinea-Bissau\")).or\n(value.contains(\"Liberia\")).or\n(value.contains(\"Madagascar\")).or\n(value.contains(\"Mali\")).or\n(value.contains(\"Mozambique\")).or\n(value.contains(\"Malawi\")).or\n(value.contains(\"Niger\")).or\n(value.contains(\"North Korea\")).or\n(value.contains(\"Rwanda\")).or\n(value.contains(\"Sudan\")).or\n(value.contains(\"Sierra Leone\")).or\n(value.contains(\"Somalia\")).or\n(value.contains(\"South Sudan\")).or\n(value.contains(\"Syrian Arab Republic\")).or\n(value.contains(\"Chad\")).or\n(value.contains(\"Togo\")).or\n(value.contains(\"Uganda\")).or\n(value.contains(\"Yemen\")).or\n(value.contains(\"Angola\")).or (value.contains(\"Benin\")).or (value.contains(\"Bangladesh\")).or (value.contains(\"Bolivia\")).or (value.contains(\"Bhutan\")).or (value.contains(\"Côte d’Ivoire\")).or (value.contains(\"Cameroon\")).or (value.contains(\"DEM REP CONGO\")).or (value.contains(\"Comoros\")).or (value.contains(\"Cabo Verde\")).or (value.contains(\"Djibouti\")).or (value.contains(\"Algeria\")).or (value.contains(\"Egypt\")).or (value.contains(\"Micronesia\")).or (value.contains(\"Ghana\")).or (value.contains(\"Guinea\")).or (value.contains(\"Honduras\")).or (value.contains(\"Haiti\")).or (value.contains(\"India\")).or (value.contains(\"Iran\")).or (value.contains(\"Jordan\")).or (value.contains(\"Kenya\")).or (value.contains(\"Kyrgyz Republic\")).or (value.contains(\"Cambodia\")).or (value.contains(\"Kiribati\")).or (value.contains(\"Lao PDR\")).or (value.contains(\"Lebanon\")).or (value.contains(\"Sri Lanka\")).or (value.contains(\"Lesotho\")).or (value.contains(\"Morocco\")).or (value.contains(\"Myanmar\")).or (value.contains(\"Mongolia\")).or (value.contains(\"Mauritania\")).or (value.contains(\"Nigeria\")).or (value.contains(\"Nicaragua\")).or (value.contains(\"Nepal\")).or (value.contains(\"Pakistan\")).or (value.contains(\"Philippines\")).or (value.contains(\"Papua New Guinea\")).or (value.contains(\"Senegal\")).or (value.contains(\"Solomon Islands\")).or (value.contains(\"São Tomé and Príncipe\")).or (value.contains(\"Eswatini\")).or (value.contains(\"Tajikistan\")).or (value.contains(\"Timor-Leste\")).or (value.contains(\"Tunisia\")).or (value.contains(\"Tanzania\")).or (value.contains(\"Ukraine\")).or (value.contains(\"Uzbekistan\")).or (value.contains(\"Vietnam\")).or (value.contains(\"Vanuatu\")).or (value.contains(\"Samoa\")).or (value.contains(\"Zambia\")).or (value.contains(\"Zimbabwe\"))",
+    "onError": "set-to-blank",
+    "newColumnName": "Any LMIC authors?",
+    "columnInsertIndex": 24,
+    "description": "Create column Any LMIC authors? at index 24 based on column All Country Affiliations using expression grel:(value.contains(\"Afghanistan\")).or\n(value.contains(\"Burundi\")).or\n(value.contains(\"Burkina Faso\")).or\n(value.contains(\"Central African Republic\")).or\n(value.contains(\"DEM REP CONGO\")).or\n(value.contains(\"Eritrea\")).or\n(value.contains(\"Ethiopia\")).or\n(value.contains(\"Gambia\")).or\n(value.contains(\"Guinea-Bissau\")).or\n(value.contains(\"Liberia\")).or\n(value.contains(\"Madagascar\")).or\n(value.contains(\"Mali\")).or\n(value.contains(\"Mozambique\")).or\n(value.contains(\"Malawi\")).or\n(value.contains(\"Niger\")).or\n(value.contains(\"North Korea\")).or\n(value.contains(\"Rwanda\")).or\n(value.contains(\"Sudan\")).or\n(value.contains(\"Sierra Leone\")).or\n(value.contains(\"Somalia\")).or\n(value.contains(\"South Sudan\")).or\n(value.contains(\"Syrian Arab Republic\")).or\n(value.contains(\"Chad\")).or\n(value.contains(\"Togo\")).or\n(value.contains(\"Uganda\")).or\n(value.contains(\"Yemen\")).or\n(value.contains(\"Angola\")).or (value.contains(\"Benin\")).or (value.contains(\"Bangladesh\")).or (value.contains(\"Bolivia\")).or (value.contains(\"Bhutan\")).or (value.contains(\"Côte d’Ivoire\")).or (value.contains(\"Cameroon\")).or (value.contains(\"DEM REP CONGO\")).or (value.contains(\"Comoros\")).or (value.contains(\"Cabo Verde\")).or (value.contains(\"Djibouti\")).or (value.contains(\"Algeria\")).or (value.contains(\"Egypt\")).or (value.contains(\"Micronesia\")).or (value.contains(\"Ghana\")).or (value.contains(\"Guinea\")).or (value.contains(\"Honduras\")).or (value.contains(\"Haiti\")).or (value.contains(\"India\")).or (value.contains(\"Iran\")).or (value.contains(\"Jordan\")).or (value.contains(\"Kenya\")).or (value.contains(\"Kyrgyz Republic\")).or (value.contains(\"Cambodia\")).or (value.contains(\"Kiribati\")).or (value.contains(\"Lao PDR\")).or (value.contains(\"Lebanon\")).or (value.contains(\"Sri Lanka\")).or (value.contains(\"Lesotho\")).or (value.contains(\"Morocco\")).or (value.contains(\"Myanmar\")).or (value.contains(\"Mongolia\")).or (value.contains(\"Mauritania\")).or (value.contains(\"Nigeria\")).or (value.contains(\"Nicaragua\")).or (value.contains(\"Nepal\")).or (value.contains(\"Pakistan\")).or (value.contains(\"Philippines\")).or (value.contains(\"Papua New Guinea\")).or (value.contains(\"Senegal\")).or (value.contains(\"Solomon Islands\")).or (value.contains(\"São Tomé and Príncipe\")).or (value.contains(\"Eswatini\")).or (value.contains(\"Tajikistan\")).or (value.contains(\"Timor-Leste\")).or (value.contains(\"Tunisia\")).or (value.contains(\"Tanzania\")).or (value.contains(\"Ukraine\")).or (value.contains(\"Uzbekistan\")).or (value.contains(\"Vietnam\")).or (value.contains(\"Vanuatu\")).or (value.contains(\"Samoa\")).or (value.contains(\"Zambia\")).or (value.contains(\"Zimbabwe\"))"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Funding Text",
+    "expression": "grel:value.contains(\"\")",
+    "onError": "set-to-blank",
+    "newColumnName": "Funding Text?",
+    "columnInsertIndex": 37,
+    "description": "Create column Funding Text? at index 37 based on column Funding Text using expression grel:value.contains(\"\")"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Funding Text?",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [],
+        "fromBlank": true,
+        "fromError": false,
+        "to": "false"
+      }
+    ],
+    "description": "Mass edit cells in column Funding Text?"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Source Title",
+    "expression": "grel:value",
+    "onError": "set-to-blank",
+    "newColumnName": "2023 Journal Impact Factor",
+    "columnInsertIndex": 10,
+    "description": "Create column 2023 Journal Impact Factor at index 10 based on column Source Title using expression grel:value"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "2023 Journal Impact Factor",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "ANNALS OF FAMILY MEDICINE"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "4.4"
+      }
+    ],
+    "description": "Mass edit cells in column 2023 Journal Impact Factor"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "2023 Journal Impact Factor",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "AUSTRALIAN JOURNAL OF GENERAL PRACTICE"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "1.6"
+      }
+    ],
+    "description": "Mass edit cells in column 2023 Journal Impact Factor"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "2023 Journal Impact Factor",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "AUSTRALIAN JOURNAL OF RURAL HEALTH"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "1.9"
+      }
+    ],
+    "description": "Mass edit cells in column 2023 Journal Impact Factor"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "2023 Journal Impact Factor",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "BMC PRIMARY CARE"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "2.0"
+      }
+    ],
+    "description": "Mass edit cells in column 2023 Journal Impact Factor"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "2023 Journal Impact Factor",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "BRITISH JOURNAL OF GENERAL PRACTICE"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "5.3"
+      }
+    ],
+    "description": "Mass edit cells in column 2023 Journal Impact Factor"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "2023 Journal Impact Factor",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "CANADIAN FAMILY PHYSICIAN"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "2.4"
+      }
+    ],
+    "description": "Mass edit cells in column 2023 Journal Impact Factor"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "2023 Journal Impact Factor",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "EUROPEAN JOURNAL OF GENERAL PRACTICE"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "2.3"
+      }
+    ],
+    "description": "Mass edit cells in column 2023 Journal Impact Factor"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "2023 Journal Impact Factor",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "FAMILY MEDICINE"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "1.8"
+      }
+    ],
+    "description": "Mass edit cells in column 2023 Journal Impact Factor"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "2023 Journal Impact Factor",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "FAMILY MEDICINE AND COMMUNITY HEALTH"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "2.6"
+      }
+    ],
+    "description": "Mass edit cells in column 2023 Journal Impact Factor"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "2023 Journal Impact Factor",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "FAMILY PRACTICE"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "2.4"
+      }
+    ],
+    "description": "Mass edit cells in column 2023 Journal Impact Factor"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "2023 Journal Impact Factor",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "JOURNAL OF GENERAL AND FAMILY MEDICINE"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "1.8"
+      }
+    ],
+    "description": "Mass edit cells in column 2023 Journal Impact Factor"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "2023 Journal Impact Factor",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "JOURNAL OF PRIMARY HEALTH CARE"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "1.1"
+      }
+    ],
+    "description": "Mass edit cells in column 2023 Journal Impact Factor"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "2023 Journal Impact Factor",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "JOURNAL OF THE AMERICAN BOARD OF FAMILY MEDICINE"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "2.4"
+      }
+    ],
+    "description": "Mass edit cells in column 2023 Journal Impact Factor"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "2023 Journal Impact Factor",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "RURAL AND REMOTE HEALTH"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "2.0"
+      }
+    ],
+    "description": "Mass edit cells in column 2023 Journal Impact Factor"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "2023 Journal Impact Factor",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "SCANDINAVIAN JOURNAL OF PRIMARY HEALTH CARE"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "1.9"
+      }
+    ],
+    "description": "Mass edit cells in column 2023 Journal Impact Factor"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "2023 Journal Impact Factor",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "SOUTH AFRICAN FAMILY PRACTICE"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "1.2"
+      }
+    ],
+    "description": "Mass edit cells in column 2023 Journal Impact Factor"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Publisher Country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "AFRICA"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "SOUTH AFRICA"
+      }
+    ],
+    "description": "Mass edit cells in column Publisher Country"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "Addresses",
+    "keyColumnName": "Publication Type",
+    "mode": "separator",
+    "separator": "; [",
+    "regex": false,
+    "description": "Split multi-valued cells in column Addresses"
+  }
+]
